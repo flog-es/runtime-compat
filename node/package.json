@@ -1,0 +1,19 @@
+{
+  "name": "runtime-compat",
+  "version": "0.1.0",
+  "author": "Primate core team <core@primatejs.com>",
+  "homepage": "https://primatejs.com",
+  "bugs": "https://github.com/primatejs/runtime-compat/issues",
+  "repository": "https://github.com/primatejs/runtime-compat/node",
+  "description": "Full-stack JavaScript framework, Node.js runtime",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-plugin-json": "^3.1.0"
+  },
+  "type": "module",
+  "exports": "./exports.js",
+  "engines": {
+    "node": ">=17.9.0"
+  }
+}
