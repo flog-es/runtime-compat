@@ -5,7 +5,7 @@ const colors = {
   "blue": 34,
 };
 const reset = 0;
-const encoder = new TextEncodee();
+const encoder = new TextEncoder();
 
 const Log = {
   "paint": (color, message) => {
