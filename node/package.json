@@ -1,10 +1,10 @@
 {
   "name": "runtime-compat",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "Primate core team <core@primatejs.com>",
   "homepage": "https://primatejs.com",
   "bugs": "https://github.com/primatejs/runtime-compat/issues",
-  "repository": "https://github.com/primatejs/runtime-compat/node",
+  "repository": "https://github.com/primatejs/runtime-compat/tree/master/node",
   "description": "Full-stack JavaScript framework, Node.js runtime",
   "license": "BSD-3-Clause",
   "devDependencies": {
