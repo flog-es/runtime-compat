@@ -5,16 +5,12 @@ const RequestWrapper = class {
     this.request = request;
   }
 
-  async #body() {
+  async text() {
     const buffers = [];
     for await (const chunk of this.request) {
       buffers.push(chunk);
     }
     return Buffer.concat(buffers).toString();
-  }
-
-  get body() {
-    return this.#body();
   }
 
   get headers() {
@@ -23,6 +19,10 @@ const RequestWrapper = class {
 
   get method() {
     return this.request.method;
+  }
+
+  get url() {
+    return new URL(`https://1${this.request.url}`);
   }
 };
 

@@ -18,11 +18,13 @@ export default class File {
   }
 
   get is_file() {
-    return this.stats.then(({isFile}) => isFile);
+    return this.exists.then(exists =>
+      exists ? this.stats.then(({isFile}) => isFile) : false);
   }
 
   get is_directory() {
-    return this.stats.then(({isDirectory}) => isDirectory);
+    return this.exists.then(exists =>
+      exists ? this.stats.then(({isDirectory}) => isDirectory) : false);
   }
 
   get stream() {

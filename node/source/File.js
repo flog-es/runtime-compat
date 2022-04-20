@@ -27,11 +27,11 @@ export default class File {
   }
 
   get is_file() {
-    return this.stats.then(stats => stats.isFile());
+    return this.stats.then(stats => stats?.isFile());
   }
 
   get is_directory() {
-    return this.stats.then(stats => stats.isDirectory());
+    return this.stats.then(stats => stats?.isDirectory());
   }
 
   get stream() {

@@ -1,15 +1,12 @@
-import {serveTls} from "https://deno.land/std/http/server.ts";
-import {readAll} from "https://deno.land/std@0.103.0/io/util.ts";
+import {serveTls} from "https://deno.land/std@0.135.0/http/server.ts";
 
 const RequestWrapper = class {
   constructor(request) {
     this.request = request;
   }
 
-  get body() {
-    return this.request.body !== null
-      ? readAll(this.request.body).then(body => new TextDecoder().decode(body))
-      : "";
+  text() {
+    return this.request.text();
   }
 
   get headers() {
@@ -18,6 +15,10 @@ const RequestWrapper = class {
 
   get method() {
     return this.request.method;
+  }
+
+  get url() {
+    return new URL(this.request.url);
   }
 }
 
