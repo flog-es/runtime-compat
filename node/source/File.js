@@ -111,6 +111,10 @@ export default class File {
     return new File(...args).remove();
   }
 
+  static create(...args) {
+    return new File(...args).create();
+  }
+
   static copy(from, to) {
     return new File(from).copy(to);
   }

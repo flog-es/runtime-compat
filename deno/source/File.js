@@ -46,9 +46,7 @@ export default class File {
   }
 
   create() {
-    return new Promise((resolve, reject) => Deno.mkdir(this.path, error =>
-      error === null ? resolve(this) : reject(error)
-    ));
+    return Deno.mkdir(this.path);
   }
 
   async copy(to) {
@@ -103,6 +101,10 @@ export default class File {
 
   static remove(...args) {
     return new File(...args).remove();
+  }
+
+  static create(...args) {
+    return new File(...args).create();
   }
 
   static copy(from, to) {
