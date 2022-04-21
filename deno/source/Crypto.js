@@ -1,5 +1,5 @@
-import {createHash} from "https://deno.land/std@0.77.0/hash/mod.ts";
-import randomBytes from "https://deno.land/std@0.78.0/node/_crypto/randomBytes.ts"
+import {createHash} from "https://deno.land/std@0.135.0/hash/mod.ts";
+import randomBytes from "https://deno.land/std@0.135.0/node/_crypto/randomBytes.ts"
 
 const encoding = "utf8";
 
