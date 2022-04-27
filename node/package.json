@@ -8,7 +8,7 @@
   "description": "Full-stack JavaScript framework, Node.js runtime",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "eslint": "^8.13.0",
+    "eslint": "^8.14.0",
     "eslint-plugin-json": "^3.1.0"
   },
   "type": "module",
