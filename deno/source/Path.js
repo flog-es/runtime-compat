@@ -7,6 +7,10 @@ export default class {
     this.path = path.startsWith("file://") ? path.slice(file_prefix) : path;
   }
 
+  get directory() {
+    return dirname(this.path);
+  }
+
   static join(...args)  {
     return join(...args);
   }

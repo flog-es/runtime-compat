@@ -14,8 +14,10 @@ export default class File {
   }
 
   get stats() {
-    return new Promise(resolve =>
-      fs.lstat(this.path, (error, stats) => resolve(stats)));
+    return new Promise((resolve, reject) =>
+      fs.lstat(this.path, (error, stats) =>
+        error === null ? resolve(stats) : reject(error)
+      ));
   }
 
   get modified() {
@@ -27,11 +29,13 @@ export default class File {
   }
 
   get is_file() {
-    return this.stats.then(stats => stats?.isFile());
+    return this.exists.then(exists =>
+      exists ? this.stats.then(stats => stats.isFile()) : false);
   }
 
   get is_directory() {
-    return this.stats.then(stats => stats?.isDirectory());
+    return this.exists.then(exists =>
+      exists ? this.stats.then(stats => stats.isDirectory()) : false);
   }
 
   get stream() {
@@ -95,8 +99,8 @@ export default class File {
     return fs.readFileSync(path, options);
   }
 
-  static exists(...args) {
-    return new File(...args).exists;
+  static exists(args) {
+    return new File(args).exists;
   }
 
   static read(...args) {
