@@ -12,7 +12,12 @@
     "eslint-plugin-json": "^3.1.0"
   },
   "type": "module",
-  "exports": "./exports.js",
+  "exports": {
+    ".": "./exports/main.js",
+    "./filesystem": "./exports/filesystem.js",
+    "./crypto": "./exports/crypto.js",
+    "./web": "./exports/web.js"
+  },
   "engines": {
     "node": ">=17.9.0"
   }
