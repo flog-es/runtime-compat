@@ -1,6 +1,6 @@
 {
   "name": "runtime-compat",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "author": "Primate core team <core@primatejs.com>",
   "homepage": "https://primatejs.com",
   "bugs": "https://github.com/primatejs/runtime-compat/issues",
