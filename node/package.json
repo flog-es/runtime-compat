@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "author": "Primate core team <core@primatejs.com>",
   "homepage": "https://primatejs.com",
-  "bugs": "https://github.com/primatejs/runtime-compat/issues",
-  "repository": "https://github.com/primatejs/runtime-compat/tree/master/node",
+  "bugs": "https://github.com/flog-es/runtime-compat/issues",
+  "repository": "https://github.com/flog-es/runtime-compat/tree/master/node",
   "description": "Full-stack JavaScript framework, Node.js runtime",
   "license": "BSD-3-Clause",
   "devDependencies": {
