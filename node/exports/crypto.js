@@ -1,1 +1,1 @@
-export {default} from "../src/Crypto.js";
+export {default, hash, SHA256} from "../src/Crypto.js";
