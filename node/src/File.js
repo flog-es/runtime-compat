@@ -1,7 +1,10 @@
 import {join} from "path";
 import fs from "fs";
+import Path from "./Path.js";
 
 const options = {"encoding": "utf8"};
+
+const resolve = path => path instanceof Path ? path.path : path;
 
 const readdir = path => new Promise((resolve, reject) =>
   fs.readdir(path, options,
@@ -63,15 +66,18 @@ export default class File {
     ));
   }
 
-  async copy(to_path) {
+  async copy(to_path, filter = () => true) {
+    // is.string(to_path)
+    // is.function(filter)
     if (await this.is_directory) {
       const to = new File(to_path);
       if (!await to.exists) {
         await to.create();
       }
       // copy all files
-      return Promise.all((await this.list()).map(file =>
-        new File(`${this.path}/${file}`).copy(`${to_path}/${file}`)
+      return Promise.all((await this.list())
+        .filter(filter)
+        .map(file => new File(`${this.path}/${file}`).copy(`${to_path}/${file}`)
       ));
     } else {
       return new Promise((resolve, reject) => fs.copyFile(this.path, to_path,
@@ -123,7 +129,7 @@ export default class File {
     return new File(...args).create();
   }
 
-  static copy(from, to) {
-    return new File(from).copy(to);
+  static copy(from, to, filter) {
+    return new File(from).copy(to, filter);
   }
 }
