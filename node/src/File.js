@@ -63,14 +63,18 @@ export default class File {
     ));
   }
 
-  async copy(to) {
+  async copy(to_path) {
     if (await this.is_directory) {
+      const to = new File(to_path);
+      if (!await to.exists) {
+        await to.create();
+      }
       // copy all files
       return Promise.all((await this.list()).map(file =>
-        new File(`${this.path}/${file}`).copy(`${to}/${file}`)
+        new File(`${this.path}/${file}`).copy(`${to_path}/${file}`)
       ));
     } else {
-      return new Promise((resolve, reject) => fs.copyFile(this.path, to,
+      return new Promise((resolve, reject) => fs.copyFile(this.path, to_path,
         error => error === null ? resolve(this) : reject(error)));
     }
   }
